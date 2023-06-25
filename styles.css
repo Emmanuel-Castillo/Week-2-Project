@@ -28,6 +28,19 @@ main {
   color: rgb(100, 21, 255);
 }
 
+button {
+  padding: 24px 32px;
+  margin: 16px 0;
+  border-radius: 9999px;
+  border: none;
+  background-color: rgb(100, 21, 255);
+  color: white;
+  border: none;
+  transition: all 300ms ease;
+}
+
+
+
 /* NAVIGATION */
 
 nav {
@@ -76,14 +89,15 @@ li {
 }
 
 .nav__link {
+  position: relative;
   margin-left: 16px;
   padding: 8px;
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
   color: rgb(36, 62, 99);
-  transition: color 300ms ease;
   text-align: center;
+  transition: all 300ms ease;
 }
 
 .gap__link {
@@ -92,21 +106,36 @@ li {
 
 .nav__link:hover {
   color: rgb(100, 21, 255);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 8px;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(100, 21, 255);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.nav__link:hover::after {
+  opacity: 1;
 }
 
 .sign-up__link {
   padding: 12px 32px;
+  margin-left: 8px;
   background-color: rgb(100, 21, 255);
   color: white;
+  text-decoration: none;
   border-radius: 9999px;
-  transition: 300ms ease;
+  position: relative;
+  transition: all 300ms ease;
 }
 
-.sign-up__link:hover,
-button:hover {
+button:hover, .sign-up__link:hover {
   color: white;
   text-decoration: none;
   filter: brightness(85%);
@@ -155,14 +184,13 @@ button:hover {
 }
 
 .menu__list {
-  padding: 24px 0;
+  padding: 32px 0;
+  text-underline-offset: 16px;
 }
 
 .menu__link {
   font-size: 40px;
   color: white;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 12px; 
 }
 
 .btn__menu--close {
@@ -172,10 +200,16 @@ button:hover {
   padding: 8px;
   color: white;
 }
+
 /* GET STARTED */
 
-h1 {
-  font-size: 48px;
+.get-started__container,
+.quality-work__container,
+.steps__container,
+.values__container,
+.testimonials__container {
+padding: 56px 24px;
+  display: flex;
 }
 
 .get-started__left-side {
@@ -186,7 +220,7 @@ h1 {
 }
 
 .get-started__para {
-  margin: 32px 0;
+  margin: 16px 0;
   line-height: 1.5;
   color: rgb(36, 62, 99);
   font-size: 16px;
@@ -196,13 +230,13 @@ h1 {
   border: 1px solid lightgrey;
   border-radius: 9999px;
   position: relative;
-  padding: 20px 192px 20px 32px;
-  width: 90%;
+  padding: 20px 8px;
+  margin-top: 24px;
 }
 
 input {
   border: none;
-  width: 100%;
+  width: 55%;
 }
 
 .sign-up__button {
@@ -211,13 +245,13 @@ input {
   top: 0;
   bottom: 0;
   margin: 6px 6px 6px 0;
-  padding: 12px 32px;
+  padding: 12px 16px;
   background-color: rgb(100, 21, 255);
   color: white;
   border-radius: 9999px;
   text-decoration: none;
   transition: 300ms ease;
-
+  width: 40%;
 }
 
 .get-started__trusted-customers {
@@ -235,6 +269,12 @@ input {
   padding-right: 24px;
   margin-top: 16px;
   opacity: .5;
+}
+
+.get-started__button, .contact-us__button {
+  margin: 0 4px;
+  padding: 24px 32px;
+  text-align: center;
 }
 
 .get-started__right-side {
@@ -293,11 +333,7 @@ input {
 
 /* REUSABLE CLASSES */
 
-.display-flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 h3 {
   font-weight: 700;
@@ -323,23 +359,16 @@ h3 {
   max-width: 50%;
 }
 
-.third-parent-width {
-  max-width: 30%;
+.portion-parent-width {
+  max-width: 40%;
 }
 
 .para__left-align {
+
   text-align: left;
 }
 
-button {
-  padding: 12px 32px;
-  background-color: rgb(100, 21, 255);
-  color: white;
-  border-radius: 9999px;
-  transition: 300ms ease;
-  margin-top: 2rem;
-  border: none;
-}
+
 
 .container {
   padding: 80px 0;
@@ -462,6 +491,10 @@ align-items: center;
   display: flex;
 flex-direction: column;
 align-items: center;
+}
+
+.pricing__para {
+  width: 70%;
 }
 
 .plans {
@@ -681,10 +714,10 @@ hr {
   color: white;
 }
 
-.get-started__button, .contact-us__button {
-  margin: 0 4px;
-  padding: 24px 32px;
+.contact__buttons {
+  display: flex;
 }
+  
 
 .get-started__button {
   background-color:  rgb(245 101 101);;
@@ -802,6 +835,8 @@ footer {
 /* SMALL PHONES, TABLETS, AND LARGE SMARTPHONES  */
 
 @media (max-width: 790px) {
+
+
   .nav__links {
     display: none;
   }
@@ -810,9 +845,108 @@ footer {
     display: block;
   }
 
+  .get-started__container,
+  .quality-work__container,
+  .steps__container,
+  .values__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .get-started__left-side, .get-started__right-side {
+    width: 100%;
+  }
+
+  .get-started__header {
+    font-size: 40px;
+  }
+
+  .section__header, .section__para {
+    text-align: center;
+  }
+
+  .email-button__form {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+
+  .get-started__trusted-customers {
+    margin: 24px 0;
+  }
+
+  .service {
+    width: 40%;
+  }
+
+  .quality-work__left-side, .quality-work__right-side {
+    width: 100%;
+    text-align: center;
+
+    margin: 24px 0px;
+  }
+
+  .steps__container {
+    flex-direction: column-reverse;
+  }
+
+  .steps__left-side, .steps__right-side {
+    width: 100%;
+    margin: 16px 0;
+  }
+
+  .values__left-side, .values__right-side {
+    width: 100%;
+    align-items: center;
+    margin: 24px 0;
+  }
+
+  .pricing__description{
+    width: 100%;
+  }
+
+  .plans {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .plan {
+    width: 50%;
+  }
+
+  .testimonials__container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .testimonials__left-side, .testimonials__right-side {
+    width: 100%;
+  }
+
+  .contact__buttons {
+    flex-direction: column;
+  }
+
+  .get-started__button, .contact-us__button {
+    margin: 8px 0;
+  }
+
+  .section__title {
+    text-align: center;
+  }
+
+
 }
 
 @media (max-width: 550px) {
+  .plan {
+    width: 75%;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+    text-align: center;
+  }
 }
 
 
