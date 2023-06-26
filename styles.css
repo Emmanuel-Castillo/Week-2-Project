@@ -1,3 +1,6 @@
+.container {
+  padding: 80px 0;
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;600;700;800;900&display=swap');
 
 * {
@@ -36,8 +39,48 @@ button {
   background-color: rgb(100, 21, 255);
   color: white;
   border: none;
+  cursor: pointer;
   transition: all 300ms ease;
 }
+/* REUSABLE CLASSES */
+
+
+
+h3 {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.section__header {
+  font-size: 52px;
+  font-weight: 900;
+  color: rgb(36, 62, 99);
+
+}
+
+.section__para {
+  margin-top: 16px;
+  text-align: center;
+  color: rgb(124, 139, 161);
+  line-height: 1.625;
+}
+
+.half-parent-width {
+  width: 50%;
+}
+
+.portion-parent-width {
+  max-width: 40%;
+}
+
+.para__left-align {
+
+  text-align: left;
+}
+
+
+
 
 
 
@@ -220,10 +263,7 @@ padding: 56px 24px;
 }
 
 .get-started__para {
-  margin: 16px 0;
-  line-height: 1.5;
-  color: rgb(36, 62, 99);
-  font-size: 16px;
+  text-align: left;
 }
 
 .email-button__form {
@@ -331,48 +371,6 @@ input {
 }
 
 
-/* REUSABLE CLASSES */
-
-
-
-h3 {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 8px;
-}
-
-.section__header {
-  font-size: 52px;
-  font-weight: 900;
-  color: rgb(36, 62, 99);
-
-}
-
-.section__para {
-  margin-top: 16px;
-  text-align: center;
-  color: rgb(124, 139, 161);
-  line-height: 1.625;
-}
-
-.half-parent-width {
-  max-width: 50%;
-}
-
-.portion-parent-width {
-  max-width: 40%;
-}
-
-.para__left-align {
-
-  text-align: left;
-}
-
-
-
-.container {
-  padding: 80px 0;
-}
 /* QUALITY WORK  */
 
 
@@ -865,8 +863,17 @@ footer {
     text-align: center;
   }
 
+  .section__header{
+    font-size: 40px;
+  }
+
+  .section__para, .half-parent-width {
+    width: 100%;
+  }
+
   .email-button__form {
-    width: 50%;
+    width: 100%;
+    max-width: 400px;
     margin: 0 auto;
     margin-top: 24px;
   }
@@ -876,7 +883,7 @@ footer {
   }
 
   .service {
-    width: 40%;
+    width: 100%;
   }
 
   .quality-work__left-side, .quality-work__right-side {
@@ -899,6 +906,19 @@ footer {
     width: 100%;
     align-items: center;
     margin: 24px 0;
+  }
+
+  .values-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .value {
+    width: 100%;
+  }
+
+  .value__title-img{
+    justify-content: center;
   }
 
   .pricing__description{
@@ -935,12 +955,26 @@ footer {
     text-align: center;
   }
 
+  .link__column {
+    width: calc(100% / 3);
+margin-bottom: 32px;
+align-items: center;
+  }
+
+  .footer-logo__title {
+    font-size: 12px;
+  }
+
+  .footer__copyright {
+    font-size: 12px;
+  }
+
 
 }
 
 @media (max-width: 550px) {
   .plan {
-    width: 75%;
+    width: 100%;
   }
 
   .footer__copyright {
